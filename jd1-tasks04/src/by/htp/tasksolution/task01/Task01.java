@@ -1,8 +1,8 @@
 package by.htp.tasksolution.task01;
 
 /**
- * Треугольник задан координатами своих вершин. Написать метод для вычисления
- * его площади.
+ * 1. CРѕР·РґР°С‚СЊ РјР°С‚СЂРёС†Сѓ 3 x 4, Р·Р°РїРѕР»РЅРёС‚СЊ РµРµ С‡РёСЃР»Р°РјРё 0 Рё 1 С‚Р°Рє, С‡С‚РѕР±С‹ РІ РѕРґРЅРѕР№
+ * СЃС‚СЂРѕРєРµ Р±С‹Р»Р° СЂРѕРІРЅРѕ РѕРґРЅР° РµРґРёРЅРёС†Р°, Рё РІС‹РІРµСЃС‚Рё РЅР° СЌРєСЂР°РЅ.
  * 
  * @author s.kisel
  *
@@ -19,7 +19,8 @@ public class Task01 {
 	}
 
 	static double getSquare(Point x, Point y, Point z) {
-		return 0.5 * Math.abs((x.getX() - z.getX()) * (y.getY() - z.getY()) - (y.getX() - z.getX()) * (x.getY() - z.getY()));
+		return 0.5 * Math
+				.abs((x.getX() - z.getX()) * (y.getY() - z.getY()) - (y.getX() - z.getX()) * (x.getY() - z.getY()));
 	}
 
 }
