@@ -5,12 +5,14 @@ import java.util.Random;
 public class MassiveUtil {
 
 	public static void print(int[][] array) {
-		System.out.println("Array:");
-		for (int i = 0; i < array.length; i++) {
-			for (int j = 0; j < array[i].length; j++) {
-				System.out.print(array[i][j] + "\t");
+		if (array != null) {
+			System.out.println("Array:");
+			for (int i = 0; i < array.length; i++) {
+				for (int j = 0; j < array[i].length; j++) {
+					System.out.print(array[i][j] + "\t");
+				}
+				System.out.println();
 			}
-			System.out.println();
 		}
 	}
 
@@ -110,14 +112,44 @@ public class MassiveUtil {
 	public static int[][] getSum(int[][] arrayA, int[][] arrayB) {
 		int[][] result = new int[arrayA.length][arrayA[0].length];
 		if ((arrayA.length != arrayB.length) || (arrayA[0].length != arrayB[0].length)) {
-			System.out.println("Arrays have diffrent dimentions");
+			System.out.println("Arrays have diffrent dimensions");
+			return null;
 		} else {
 			for (int i = 0; i < arrayA.length; i++) {
 				for (int j = 0; j < arrayA[i].length; j++) {
 					result[i][j] = arrayA[i][j] + arrayB[i][j];
 				}
 			}
+			return result;
 		}
-		return result;
+	}
+
+	/**
+	 * Returns result of multiplication arrayA and arrayB or null if arrays have
+	 * wrong dimensions
+	 * 
+	 * @param arrayA
+	 * @param arrayB
+	 * @return
+	 */
+	public static int[][] getMultiplication(int[][] arrayA, int[][] arrayB) {
+		int[][] result = new int[arrayA.length][arrayA.length];
+		if ((arrayA[0].length != arrayB.length)) {
+			System.out.println("Arrays have wrong dimensions");
+			return null;
+		} else {
+			int sum = 0;
+			for (int i = 0; i < arrayA.length; i++) {
+				for (int j = 0; j < arrayA.length; j++) {
+					for (int z = 0; z < arrayA[0].length; z++) {
+						sum += (arrayA[i][z] * arrayB[z][j]);
+					}
+					result[i][j] = sum;
+					sum = 0;
+				}
+
+			}
+			return result;
+		}
 	}
 }
