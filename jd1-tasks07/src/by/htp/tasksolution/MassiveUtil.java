@@ -152,4 +152,36 @@ public class MassiveUtil {
 			return result;
 		}
 	}
+
+	public static int[][] mixRowsInArray(int[][] array) {
+		int[] rowsOrder = new int[array.length];
+		fillArrayAsRowsNumber(rowsOrder);
+		mixValues(rowsOrder);
+		int[][] result = new int[array.length][array[0].length];
+		for (int i = 0; i < array.length; i++) {
+			for (int j = 0; j < array[i].length; j++) {
+				result[rowsOrder[i]][j] = array[i][j];
+			}
+		}
+		return result;
+	}
+
+	private static void mixValues(int[] array) {
+		Random rand = new Random();
+		int var;
+		int random;
+		for (int i = 0; i < array.length; i++) {
+			random = rand.nextInt(array.length);
+			var = array[i];
+			array[i] = array[random];
+			array[random] = var;
+
+		}
+	}
+
+	private static void fillArrayAsRowsNumber(int[] array) {
+		for (int i = 0; i < array.length; i++) {
+			array[i] = i;
+		}
+	}
 }
