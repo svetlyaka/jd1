@@ -10,14 +10,12 @@ package by.htp.tasksolution03;
  *
  */
 public class Task03 {
-	public static int mark10 = 10;
-	public static int mark9 = 9;
 
 	public static void main(String[] args) {
 
 		Student[] students = new Student[10];
 		int[] marks = new int[] { 9, 10 };
-		students[0] = new Student("Alvaro Pavis", "6060", new int[] { 9, 8, 8, 9, 9, 8 });
+		students[0] = new Student("Alvaro Pavis", "6060", new int[] { 9, 8, 10, 9, 9, 8 });
 		students[1] = new Student("Yolando Kravchuk", "6061");
 		students[2] = new Student("Vena Lamell", "6063");
 		students[2].setALLMarks(8);
@@ -37,24 +35,11 @@ public class Task03 {
 	public static void printHonoursPupil(Student[] students, int[] marks) {
 		boolean isStudentAHonoursPupil;
 		for (int i = 0; i < students.length; i++) {
-			isStudentAHonoursPupil = isAllMarkExcelent(students[i].getAcademicPerformance());
+			isStudentAHonoursPupil = students[i].areAllMarkExcelent();
 			if (isStudentAHonoursPupil) {
 				students[i].print();
 			}
 		}
 	}
 
-	public static boolean isAllMarkExcelent(int[] marks) {
-		int count = 0;
-		for (int z = 0; z < marks.length; z++) {
-			if (marks[z] == mark10 || marks[z] == mark9) {
-				count++;
-			}
-		}
-		if (count == marks.length) {
-			return true;
-		} else {
-			return false;
-		}
-	}
 }

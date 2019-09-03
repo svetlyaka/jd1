@@ -89,4 +89,35 @@ public class MassiveUtil {
 			}
 		}
 	}
+
+	public static void printDiagonal(int[][] array) {
+		System.out.print("Diagonal :");
+		for (int i = 0; i < array.length; i++) {
+			System.out.print(array[i][i] + " ");
+		}
+		System.out.println();
+	}
+
+	public static void printReverseDiagonal(int[][] array) {
+		System.out.print("Reverse diagonal :");
+		int length = array.length;
+		for (int i = 0; i < length; i++) {
+			System.out.print(array[i][length - 1 - i] + " ");
+		}
+		System.out.println();
+	}
+
+	public static int[][] getSum(int[][] arrayA, int[][] arrayB) {
+		int[][] result = new int[arrayA.length][arrayA[0].length];
+		if ((arrayA.length != arrayB.length) || (arrayA[0].length != arrayB[0].length)) {
+			System.out.println("Arrays have diffrent dimentions");
+		} else {
+			for (int i = 0; i < arrayA.length; i++) {
+				for (int j = 0; j < arrayA[i].length; j++) {
+					result[i][j] = arrayA[i][j] + arrayB[i][j];
+				}
+			}
+		}
+		return result;
+	}
 }

@@ -46,4 +46,18 @@ public class Student {
 		return this.academicPerformance;
 	}
 
+	public boolean areAllMarkExcelent() {
+		int count = 0;
+		for (int z = 0; z < academicPerformance.length; z++) {
+			if (academicPerformance[z] == Utils.mark10 || academicPerformance[z] == Utils.mark9) {
+				count++;
+			}
+		}
+		if (count == academicPerformance.length) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 }
